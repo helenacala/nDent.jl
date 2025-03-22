@@ -16,7 +16,7 @@ macro nDent(value, expression)
     push!(stack, value)
     for i in expression.args
         if i isa Expr
-            value = replace(i, value)
+            value = eval(replace(i, value))
             push!(stack, value)
         end             
     end
